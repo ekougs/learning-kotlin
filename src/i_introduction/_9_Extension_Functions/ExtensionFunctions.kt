@@ -27,7 +27,11 @@ fun todoTask9(): Nothing = TODO(
 
 data class RationalNumber(val numerator: Int, val denominator: Int)
 
-fun Int.r(): RationalNumber = todoTask9()
-fun Pair<Int, Int>.r(): RationalNumber = todoTask9()
+fun Int.r(): RationalNumber {
+    return RationalNumber(toInt(), 1)
+}
+fun Pair<Int, Int>.r(): RationalNumber {
+    return RationalNumber(first, second)
+}
 
 
