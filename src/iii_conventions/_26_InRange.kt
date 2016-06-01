@@ -16,7 +16,10 @@ fun todoTask26_(): Nothing = TODO(
     references = { range: ClosedRange<Int> -> }
 )
 
+operator fun DateRange.contains(date:MyDate): Boolean {
+    return start <= date && date <= endInclusive
+}
+
 fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
-    todoTask26_()
-//    return date in DateRange(first, last)
+    return date in DateRange(first, last)
 }

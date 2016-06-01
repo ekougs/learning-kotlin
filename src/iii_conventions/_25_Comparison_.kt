@@ -1,5 +1,6 @@
 package iii_conventions
 
+import iv_properties.toMillis
 import util.TODO
 import util.doc25
 
@@ -14,8 +15,13 @@ fun todoTask25(): Nothing = TODO(
     references = { date: MyDate, comparable: Comparable<MyDate> -> }
 )
 
+operator fun MyDate.compareTo(other: MyDate): Int {
+    val thisTime = this.toMillis()
+    val anotherTime = other.toMillis()
+    return if (thisTime < anotherTime) -1 else if (thisTime == anotherTime) 0 else 1
+}
+
 fun task25(date1: MyDate, date2: MyDate): Boolean {
-    todoTask25()
-//    return date1 < date2
+    return date1 < date2
 }
 

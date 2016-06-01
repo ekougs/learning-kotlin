@@ -13,7 +13,10 @@ fun todoTask27(): Nothing = TODO(
     documentation = doc26()
 )
 
+operator fun MyDate.rangeTo(other: MyDate): DateRange {
+    return if(this < other) DateRange(this, other) else DateRange(other, this)
+}
+
 fun checkInRange2(date: MyDate, first: MyDate, last: MyDate): Boolean {
-    todoTask27()
-//    return date in first..last
+    return date in first..last
 }
