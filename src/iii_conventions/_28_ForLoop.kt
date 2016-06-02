@@ -30,10 +30,23 @@ fun todoTask28(): Nothing = TODO(
     documentation = doc28(),
     references = { date: MyDate -> DateRange(date, date.nextDay()) })
 
+operator fun DateRange.iterator(): Iterator<MyDate> {
+    return object : Iterator<MyDate> {
+        var currentDate = start
+        override fun hasNext(): Boolean {
+            return currentDate <= endInclusive
+        }
+
+        override fun next(): MyDate {
+            val currentDate = this.currentDate
+            this.currentDate = currentDate.nextDay()
+            return currentDate
+        }
+    }
+}
 
 fun iterateOverDateRange(firstDate: MyDate, secondDate: MyDate, handler: (MyDate) -> Unit) {
-    todoTask28()
-//    for (date in firstDate..secondDate) {
-//        handler(date)
-//    }
+    for (date in firstDate..secondDate) {
+        handler(date)
+    }
 }

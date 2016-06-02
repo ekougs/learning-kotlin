@@ -14,7 +14,7 @@ fun todoTask27(): Nothing = TODO(
 )
 
 operator fun MyDate.rangeTo(other: MyDate): DateRange {
-    return if(this < other) DateRange(this, other) else DateRange(other, this)
+    return DateRange(this, other)
 }
 
 fun checkInRange2(date: MyDate, first: MyDate, last: MyDate): Boolean {
